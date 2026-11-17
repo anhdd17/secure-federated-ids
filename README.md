@@ -1,6 +1,11 @@
-# btl-fl-security
+# secure-federated-ids
 
-Robust aggregation for federated IDS on CICIoT2023 (FedAvg, FLTrust, EMA reputation). Plan: `PLAN.md`.
+Federated intrusion detection for IoT networks (CICIoT2023) under model poisoning and privacy attacks.
+The project compares robust aggregation rules (Median, Trimmed Mean, Krum, FLTrust, DeepSight) against
+untargeted and backdoor attacks on non-IID clients, and proposes an EMA-based client reputation
+that is robust to on-off attackers, with differential privacy as an additional axis.
+
+Status: work in progress (Nov–Dec 2026). Research plan: `PLAN.md`.
 
 ## Layout
 
@@ -10,7 +15,7 @@ data/processed/  .npz, label_counts.csv (gitignored)
 src/fl/          data, partition, model, client, server; labels.py (34 -> 8 classes)
 src/attacks/ src/defenses/ src/privacy/
 configs/         one YAML per experiment grid
-scripts/         download, sanity checks, run_grid, aggregate, plots
+scripts/         sanity checks, label counts, run_grid, aggregate, plots
 results/         jsonl, one line per run
 notes/           threat_model.md, hypotheses.md
 report/
@@ -32,7 +37,7 @@ so the venv path is used. torch 2.15.0+cu132 includes sm_75; FP16 autocast works
 The GPU is shared: check `nvidia-smi` before long runs. Exact versions: `requirements.lock.gpu2.txt`.
 
 ```bash
-cd ~/btl-fl-security
+cd ~/secure-federated-ids
 python3.11 -m venv .venv
 .venv/bin/pip install torch==2.15.0 --index-url https://download.pytorch.org/whl/cu132
 .venv/bin/pip install -r requirements.txt

@@ -109,7 +109,7 @@ Phân bổ theo tuần: Tuần 1 (16–22/11) ≈ 11 h · Tuần 2 (23–29/11) 
 
 ### 2. Implement
 
-1. Tạo repo `btl-fl-security/` (git), cấu trúc:
+1. Tạo repo `secure-federated-ids/` (git), cấu trúc:
    ```
    data/        # raw (gitignore), processed .npz
    src/fl/      # data.py, partition.py, model.py, client.py, server.py
