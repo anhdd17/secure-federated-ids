@@ -1,0 +1,6 @@
+# Hyperparameter choice on FedAvg IID (PLAN P1 step 7)
+name: lr_sweep
+base: {alpha: null, rounds: 50, local_epochs: 1, eval_every: 10}
+grid:
+  lr: [0.01, 0.05, 0.1, 0.2]
+  batch_size: [64, 256]

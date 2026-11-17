@@ -7,6 +7,24 @@ that is robust to on-off attackers, with differential privacy as an additional a
 
 Status: work in progress (Nov–Dec 2026). Research plan: `PLAN.md`.
 
+## Results so far (Phase 1)
+
+FedAvg on CICIoT2023 (8 classes, 10 clients, 50 rounds), macro-F1 on a held-out test set:
+IID 0.748 · Dirichlet α=1.0 0.657 · α=0.5 0.591 · α=0.1 0.520 (centralized ceiling 0.743).
+Details and sanity checks: [`notes/sanity_p1.md`](notes/sanity_p1.md).
+
+![FedAvg convergence](report/figures/fedavg_convergence.png)
+
+## Reproduce
+
+```bash
+.venv/bin/python scripts/prepare_data.py            # CSV.zip -> data/processed/ciciot_8cls.npz
+.venv/bin/python scripts/baselines.py --epochs 50   # majority / centralized / random forest
+.venv/bin/python scripts/run_grid.py configs/fedavg_alpha.yaml --workers 8
+.venv/bin/python scripts/plots.py                   # report/figures/
+.venv/bin/python -m pytest -q
+```
+
 ## Layout
 
 ```

@@ -1,0 +1,4 @@
+# Sanity check: FedAvg with one client must match centralized SGD (same epochs, lr, batch)
+name: fedavg_one_client
+base: {n_clients: 1, alpha: null, rounds: 50, local_epochs: 1, lr: 0.05, batch_size: 64, seed: 0}
+grid: {}
